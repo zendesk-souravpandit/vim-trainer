@@ -44,7 +44,7 @@ export class FeedbackUI {
     this.timerValueEl.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
   }
 
-  showCompletionModal(stats: { keystrokes: number; time?: number; optimal: number }): void {
+  showCompletionModal(_stats: { keystrokes: number; time?: number; optimal: number }): void {
     // Auto-advance to next exercise after a brief delay
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('next-exercise'));
