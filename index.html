@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vim Trainer</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1>Vim Trainer</h1>
+        <nav class="nav">
+          <button class="nav-btn active" data-mode="motions">Motions</button>
+          <button class="nav-btn" data-mode="commands">Commands</button>
+          <button class="nav-btn" data-mode="challenges">Challenges</button>
+          <button class="nav-btn cheatsheet-btn" data-mode="cheatsheet">Cheat Sheet</button>
+        </nav>
+      </header>
+
+      <!-- Trainer View -->
+      <div id="trainer-view">
+        <div class="main-layout">
+          <aside class="sidebar">
+            <div class="sidebar-header">
+              <h3>Exercises</h3>
+              <span class="exercise-count">0/0</span>
+            </div>
+            <ul class="exercise-list" id="exercise-list">
+              <!-- Populated by JS -->
+            </ul>
+          </aside>
+
+          <main class="main">
+            <div class="exercise-panel">
+              <div class="exercise-header">
+                <h2 class="exercise-title">Loading...</h2>
+                <p class="exercise-description"></p>
+              </div>
+              <div class="hint-box">
+                <span class="hint-label">Hint:</span>
+                <span class="hint-text"></span>
+              </div>
+            </div>
+
+            <div class="editor-container">
+              <div class="mode-banner" data-mode="normal">
+                <span class="mode-text">-- NORMAL --</span>
+                <span class="mode-hint">Press i to insert, a to append</span>
+              </div>
+              <div class="editor">
+                <div class="line-numbers"></div>
+                <div class="buffer"></div>
+              </div>
+              <div class="statusline">
+                <span class="mode">NORMAL</span>
+                <span class="position">1:1</span>
+                <span class="command-buffer"></span>
+              </div>
+            </div>
+
+            <div class="feedback-panel">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="stats">
+                <span class="keystrokes">Keystrokes: <strong>0</strong></span>
+                <span class="timer hidden">Time: <strong>0:00</strong></span>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <footer class="footer">
+          <div class="controls">
+            <button class="btn" id="reset-btn">Reset (r)</button>
+            <button class="btn" id="skip-btn">Skip (n)</button>
+            <button class="btn" id="hint-btn">Show Hint (h)</button>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Cheat Sheet View -->
+      <div id="cheatsheet-view" class="hidden">
+        <div class="cheatsheet-page">
+          <div class="cheatsheet-header">
+            <div class="search-container">
+              <input
+                type="text"
+                id="cheatsheet-search"
+                class="search-input"
+                placeholder="Search commands... (e.g., delete, word, bracket, yank)"
+                autocomplete="off"
+              />
+              <span class="search-count" id="search-count"></span>
+            </div>
+            <div class="category-filter">
+              <select id="category-select" class="category-select">
+                <option value="">All Categories</option>
+              </select>
+            </div>
+          </div>
+          <div class="cheatsheet-content" id="cheatsheet-content">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
